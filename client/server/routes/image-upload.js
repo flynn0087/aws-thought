@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const AWS = require('aws-sdk');
+const paramsConfig = require('../utils/params-config');
 
 //temporary storage container
 const storage = multer.memoryStorage({
@@ -20,6 +21,15 @@ const s3 = new AWS.S3({
 });
 
 router.post('/image-upload', upload, (req, res) => {
-    // set up params config
-    // set up S3 service call
+    console.log("post('/api/image-upload'", req.file);
+    const params = paramsConfig(req.file);
+    s3.upload(params, (err, data) => {
+        if(err) {
+          console.log(err); 
+          res.status(500).send(err);
+        }
+        res.json(data);
+    });
 });
+
+module.exports = router;
