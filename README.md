@@ -17,7 +17,7 @@ This is a project intended to learn AWS cloud computing. It takes starter code t
 Clone the repo, run npm install
         
 ## Usage:
-As a demonstration of experience with AWS. The page itself is for linking thoughts and images with users and date stamps.
+As a demonstration of experience with AWS. The page itself is for linking thoughts and images with users and date stamps. The working page hosted by amazon: [Deep Thoughts](http://18.116.100.44/)
 
 ## License:
 MIT
